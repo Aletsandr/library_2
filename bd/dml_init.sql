@@ -1,17 +1,11 @@
-insert into authors (author_№, book_№, name_author) values
+insert into Authors_books (name_author) values
 (
-'001',
-'1',
 'Александр Грибоедов'
 ),
 (
-'002',
-'2',
 'Борис Васильев'
 ),
 (
-'003',
-'3',
 'Антуан де Сент-Экзюпери'
 );
 
@@ -84,6 +78,23 @@ insert into Workers (fio) values
 ),
 (
 'Зернов А.М'
+);
+
+insert into books_connect (connect_id, books_id, auther_id) values
+(
+'1',
+'0001',
+'001'
+),
+(
+'2',
+'0002',
+'002'
+),
+(
+'3',
+'0003',
+'003'
 );
 
 insert into Extradition (start_date, return_date, actual_refund) values

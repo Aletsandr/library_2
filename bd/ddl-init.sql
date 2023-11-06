@@ -1,8 +1,6 @@
-CREATE TABLE IF NOT EXISTS Authors(	--авторы
+CREATE TABLE IF NOT EXISTS Authors_books(	--авторы
 	id SERIAL primary key,
-	author_№ varchar (255),  --номер билета
-	book_№ varchar (255),
-	name_author varchar (255)
+	name_author varchar (255)  --номер билета
 );
 
 CREATE TABLE IF NOT EXISTS Publishing(	--идательство
@@ -19,8 +17,8 @@ CREATE TABLE IF NOT EXISTS Books( --книги
 	price decimal(10,2), --цена
 	number_of_instances varchar (255), -- кол-во экземпляров
 	genre varchar (255),    -- жанр
-	Authors_id bigint, -- авторы
-	foreign key (Authors_id)references Authors (id) on delete cascade,
+	--Authors_id bigint, -- авторы
+	--foreign key (Authors_id)references Authors (id) on delete cascade,
 	Publishing_id bigint,  -- издательство
 	foreign key (Publishing_id)references Publishing (id) on delete cascade
 );
@@ -36,6 +34,14 @@ CREATE TABLE IF NOT EXISTS Readers(	--читатели
 CREATE TABLE IF NOT EXISTS Workers(	--работники
 	id SERIAL primary key,
 	FIO varchar (255)
+);
+
+CREATE TABLE IF NOT EXISTS books_connect( --связка	
+	connect_id SERIAL primary key,
+	books_id bigint,
+	foreign key (books_id)references Books (id) on delete cascade,
+	auther_id bigint,
+	foreign key (auther_id)references Authors_books (id) on delete cascade
 );
 
 CREATE TABLE IF NOT EXISTS Extradition( --выдача	
